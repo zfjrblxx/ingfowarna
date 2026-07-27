@@ -16,6 +16,9 @@ const rgbValue =
 const hslValue =
     document.getElementById("hslValue");
 
+const cmykValue =
+    document.getElementById("cmykValue");
+
 const palette =
     document.getElementById("palette");
 
@@ -182,6 +185,85 @@ function rgbToHsl(r, g, b) {
 
 
 /* =========================
+   RGB TO CMYK
+========================= */
+
+function rgbToCmyk(r, g, b) {
+
+    let c =
+        1 - (r / 255);
+
+    let m =
+        1 - (g / 255);
+
+    let y =
+        1 - (b / 255);
+
+
+    const k =
+        Math.min(
+            c,
+            m,
+            y
+        );
+
+
+    /* PURE BLACK */
+
+    if (k === 1) {
+
+        return {
+            c: 0,
+            m: 0,
+            y: 0,
+            k: 100
+        };
+
+    }
+
+
+    c =
+        (c - k) /
+        (1 - k);
+
+
+    m =
+        (m - k) /
+        (1 - k);
+
+
+    y =
+        (y - k) /
+        (1 - k);
+
+
+    return {
+
+        c:
+            Math.round(
+                c * 100
+            ),
+
+        m:
+            Math.round(
+                m * 100
+            ),
+
+        y:
+            Math.round(
+                y * 100
+            ),
+
+        k:
+            Math.round(
+                k * 100
+            )
+
+    };
+}
+
+
+/* =========================
    RGB TO HEX
 ========================= */
 
@@ -233,6 +315,8 @@ function updateColor(hex) {
         currentColor;
 
 
+    /* RGB */
+
     const {
         r,
         g,
@@ -244,15 +328,39 @@ function updateColor(hex) {
         `rgb(${r}, ${g}, ${b})`;
 
 
+    /* HSL */
+
     const {
         h,
         s,
         l
-    } = rgbToHsl(r, g, b);
+    } = rgbToHsl(
+        r,
+        g,
+        b
+    );
 
 
     hslValue.textContent =
         `hsl(${h}, ${s}%, ${l}%)`;
+
+
+    /* CMYK */
+
+    const {
+        c,
+        m,
+        y,
+        k
+    } = rgbToCmyk(
+        r,
+        g,
+        b
+    );
+
+
+    cmykValue.textContent =
+        `cmyk(${c}%, ${m}%, ${y}%, ${k}%)`;
 
 
     updatePreviewText(
@@ -519,6 +627,14 @@ document
                 }
 
 
+                if (type === "cmyk") {
+
+                    text =
+                        cmykValue.textContent;
+
+                }
+
+
                 copyText(text);
 
             }
@@ -540,6 +656,7 @@ function copyText(text) {
 
         navigator.clipboard
             .writeText(text)
+
             .then(() => {
 
                 showToast(
