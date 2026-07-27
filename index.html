@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IngfoWarna — Color Toolkit</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MACOS HEADER -->
+    <header class="window-header">
+
+        <div class="traffic-lights">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+        </div>
+
+        <div class="window-title">
+            IngfoWarna
+        </div>
+
+        <div class="header-space"></div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="content">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <span class="mini-label">
+                COLOR TOOLKIT
+            </span>
+
+            <h1>Temukan warnamu.</h1>
+
+            <p>
+                Pilih, konversi, buat palet, dan simpan warna favoritmu.
+            </p>
+
+        </section>
+
+
+        <!-- COLOR PICKER -->
+        <section class="picker-card">
+
+            <div class="color-preview" id="colorPreview">
+
+                <input
+                    type="color"
+                    id="colorPicker"
+                    value="#74c69d"
+                    aria-label="Pilih warna"
+                >
+
+                <div class="preview-content">
+
+                    <span>Warna terpilih</span>
+
+                    <strong id="previewHex">
+                        #74C69D
+                    </strong>
+
+                    <small>
+                        Klik untuk mengganti
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- COLOR VALUES -->
+            <div class="color-values">
+
+                <div class="value-row" data-copy="hex">
+
+                    <span class="value-label">
+                        HEX
+                    </span>
+
+                    <span class="value" id="hexValue">
+                        #74C69D
+                    </span>
+
+                    <button class="copy-btn" type="button">
+                        Salin
+                    </button>
+
+                </div>
+
+
+                <div class="value-row" data-copy="rgb">
+
+                    <span class="value-label">
+                        RGB
+                    </span>
+
+                    <span class="value" id="rgbValue">
+                        rgb(116, 198, 157)
+                    </span>
+
+                    <button class="copy-btn" type="button">
+                        Salin
+                    </button>
+
+                </div>
+
+
+                <div class="value-row" data-copy="hsl">
+
+                    <span class="value-label">
+                        HSL
+                    </span>
+
+                    <span class="value" id="hslValue">
+                        hsl(150, 41%, 62%)
+                    </span>
+
+                    <button class="copy-btn" type="button">
+                        Salin
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION -->
+            <div class="actions">
+
+                <button
+                    class="btn primary"
+                    id="saveColor"
+                    type="button"
+                >
+                    ♡ Simpan Warna
+                </button>
+
+                <button
+                    class="btn secondary"
+                    id="randomColor"
+                    type="button"
+                >
+                    ✦ Warna Acak
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PALETTE -->
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PALET
+                    </span>
+
+                    <h2>Variasi warna</h2>
+
+                </div>
+
+                <span class="hint">
+                    Klik warna untuk menyalin
+                </span>
+
+            </div>
+
+            <div class="palette" id="palette"></div>
+
+        </section>
+
+
+        <!-- SAVED -->
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        KOLEKSI
+                    </span>
+
+                    <h2>Warna tersimpan</h2>
+
+                </div>
+
+                <button
+                    class="clear-btn"
+                    id="clearColors"
+                    type="button"
+                >
+                    Hapus semua
+                </button>
+
+            </div>
+
+
+            <div class="saved-colors" id="savedColors">
+
+                <div class="empty-state">
+
+                    <span>♡</span>
+
+                    <p>
+                        Belum ada warna tersimpan.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        Created with ❤️ by
+
+        <a
+            href="https://zfjrblxx.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            zfjrblxx
+        </a>
+
+    </footer>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    Tersalin!
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
