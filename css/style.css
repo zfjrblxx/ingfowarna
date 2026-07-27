@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 :root {
     --bg: #f3fbf6;
     --card: #ffffff;
@@ -98,7 +99,6 @@ body {
 
 .traffic-lights {
     display: flex;
-
     gap: 8px;
 }
 
@@ -314,11 +314,13 @@ body {
     display: grid;
 
     grid-template-columns:
-        60px
+        65px
         1fr
         auto;
 
     align-items: center;
+
+    gap: 10px;
 
     padding: 0 14px;
 
@@ -341,6 +343,8 @@ body {
 
 
 .value {
+    min-width: 0;
+
     font-size: 13px;
 
     font-weight: 500;
@@ -595,6 +599,8 @@ body {
 
     justify-content: space-between;
 
+    gap: 8px;
+
     padding: 9px 3px 2px;
 }
 
@@ -813,10 +819,21 @@ footer a:hover {
             48px
             1fr
             auto;
+
+        gap: 6px;
+
+        padding:
+            0
+            10px;
     }
 
 
     .value {
+        font-size: 10px;
+    }
+
+
+    .copy-btn {
         font-size: 11px;
     }
 
